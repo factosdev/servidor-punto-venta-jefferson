@@ -2,6 +2,8 @@ const Cliente = require("../../models/Cliente");
 const Servicio = require("../../models/Servicio");
 const Banco = require("../../models/Banco");
 const Cuenta = require("../../models/Cuenta");
+const clienteRedis = require("../../middlewares/redis");
+
 const {
   verComprasClienteService,
 } = require("../../services/GET/verComprasCliente");

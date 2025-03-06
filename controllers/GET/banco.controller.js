@@ -22,17 +22,16 @@ const getBancos = async (req, res) => {
       );
     }
 
-    // Si no hay bancos, devolver una respuesta apropiada
+    /* // Si no hay bancos, devolver una respuesta apropiada
     if (!bancos || bancos.length === 0) {
       return res.status(404).json({
         message: "No se encontraron bancos.",
         ok: false,
       });
-    }
+    } */
 
     return res.status(200).json({
       bancos,
-      ok: true,
     });
   } catch (error) {
     console.error("Error en getBancos:", error);

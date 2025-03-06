@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const cookieParser = require("cookie-parser");
+const { createClient } = require("redis");
 
 const apiClientes = require("./Routes/clientes.routes");
 const apiCuentas = require("./Routes/cuentas.routes");
@@ -10,8 +11,13 @@ const apiServicios = require("./Routes/servicios.routes");
 const apiBancos = require("./Routes/bancos.routes");
 const apiCompras = require("./Routes/compras.routes");
 const api = require("./Routes/api.routes");
+const auth = require("./Routes/usuarios.routes");
 
 const app = express();
+
+
+
+
 const dotenv = require("dotenv");
 const { createBug } = require("./controllers/POST/bug.controller");
 
@@ -32,5 +38,6 @@ app.use("/servicios", apiServicios);
 app.use("/bancos", apiBancos);
 app.use("/compras", apiCompras);
 app.use("/api/v1", api);
+app.use("/auth", auth);
 
 module.exports = app;

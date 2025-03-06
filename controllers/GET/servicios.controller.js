@@ -10,7 +10,6 @@ const getServiciosWithStock = async (req, res) => {
     )
     .lean();
 
-
   const serviciosConStock = servicios.map(async (servicio) => {
     const cuentas = await Cuentas.find({
       servicioID: servicio._id,
@@ -23,6 +22,7 @@ const getServiciosWithStock = async (req, res) => {
       combo: servicio.combo,
       stock,
       comprados: servicio.clientesQueLoCompraron.length,
+      _id: servicio._id,
     };
   });
 
